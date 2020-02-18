@@ -19,10 +19,20 @@ def intcheck(question, low, high):
                 print(error)
                 print()
 
-# main routine goes here
 
 # Ask user how much they want to play with (min $1, max $10)
-balance = intcheck("How much money would you like to play with? ", 1,10)
+balance = intcheck("\n"
+                   "**** Welcome to the Lucky Unicorn Game **** \n" +
+                   "\n To play, enter an amount of money between $1 and $10 (whole dollars only).\n\n"
+                   "- Each round costs $1 \n \n"
+                   "Payouts... \n"
+                   "- Unicorn: $5.00 \n"
+                   "- Horse / Zebra: $0.50 \n"
+                   "- Donkey: $0.00 \n \n \n"
+
+
+                   "How much money would you like to play with?: \n"
+                   "Type here: $ ", 1, 10)
 
 keep_going = ""
 while keep_going == "":
@@ -39,14 +49,17 @@ while keep_going == "":
 
     # Adjust total correctly for a given token
     if token == "unicorn":
-        balance +=5
+        balance += 5
         feedback = "Congratulations you won $5.00"
     elif token == "donkey":
         balance -= 1
         feedback = "Sorry, you did not win anything this round"
     else:
         balance -= 0.5
-        feedback = "(Congratulations you won 50c"
+        feedback = ("------------------------------------------------------------------ \n"
+                    "-- Sorry. you got a donkey. you did not win anything this round -- \n"
+                    "------------------------------------------------------------------ \n \n"
+                    )
 
     print()
 
