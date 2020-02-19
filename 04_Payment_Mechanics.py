@@ -13,7 +13,7 @@
 total = 10
 
 # Allow manual token input for testing purposes
-token = input("enter a token: ")
+token = input("Enter a token: ")
 
 # Adjust total correctly for a given token
 if token == "unicorn":
@@ -22,11 +22,13 @@ if token == "unicorn":
 elif token == "donkey":
     total -= 1
     feedback = "Sorry, you did not win anything this round"
-else:
+elif token == "horse" or token == "zebra":
     total -= 0.5
     feedback = "Congratulations you won 50c"
+else:
+    feedback = "\nSorry I don't understand"
 
 print()
 
 print(feedback)
-print("You have {} to play with".format(total))
+print("You have ${:.2f} to play with".format(total))
